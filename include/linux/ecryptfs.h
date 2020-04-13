@@ -133,7 +133,7 @@ struct ecryptfs_events {
 #ifdef CONFIG_ECRYPT_FS
 int ecryptfs_register_to_events(const struct ecryptfs_events *ops);
 
-/* int ecryptfs_unregister_from_events(int user_handle); */
+int ecryptfs_unregister_from_events(int user_handle);
 
 const unsigned char *ecryptfs_get_key(const void *ecrytpfs_data);
 
@@ -145,6 +145,7 @@ size_t ecryptfs_get_salt_size(const void *ecrytpfs_data);
 
 bool ecryptfs_cipher_match(const void *ecrytpfs_data,
 		const unsigned char *cipher, size_t cipher_size);
+
 
 bool ecryptfs_is_page_in_metadata(const void *ecrytpfs_data, pgoff_t offset);
 
@@ -158,12 +159,12 @@ static inline int ecryptfs_register_to_events(
 	return 1; /* dummy handle */
 }
 
-/*
+
 static int ecryptfs_unregister_from_events(int user_handle)
 {
 	return 0;
 }
-*/
+
 
 static inline const unsigned char *ecryptfs_get_key(const void *ecrytpfs_data)
 {

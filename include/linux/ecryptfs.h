@@ -133,7 +133,7 @@ struct ecryptfs_events {
 #ifdef CONFIG_ECRYPT_FS
 int ecryptfs_register_to_events(const struct ecryptfs_events *ops);
 
-int ecryptfs_unregister_from_events(int user_handle);
+/* int ecryptfs_unregister_from_events(int user_handle); */
 
 const unsigned char *ecryptfs_get_key(const void *ecrytpfs_data);
 
@@ -158,10 +158,12 @@ static inline int ecryptfs_register_to_events(
 	return 1; /* dummy handle */
 }
 
+/*
 static int ecryptfs_unregister_from_events(int user_handle)
 {
 	return 0;
 }
+*/
 
 static inline const unsigned char *ecryptfs_get_key(const void *ecrytpfs_data)
 {
